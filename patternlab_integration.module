@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Provide some glue code to integrate patternlab more easily from a backend perspective.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function patternlab_integration_theme($existing, $type, $theme, $path) {
+  return array(
+    'patternlab_pattern' => array(
+      'template' => 'patternlab-pattern',
+      'variables' => array(
+        'category' => NULL,
+        'pattern' => NULL,
+        'arguments' => array()
+      )
+    )
+  );
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function patternlab_integration_preprocess_patternlab_pattern(&$variables) {
+  dsm($variables);
+  global $theme;
+  $fn = str_replace('-', '_', $theme . '_preprocess_pattern_' . $variables['category'] . '_' . $variables['pattern']);
+  if (function_exists($fn)) {
+    $fn($variables);
+  }
+}
+
+/**
+ * Get a render array which will render a patternlab-pattern.
+ */
+function pattern($category, $pattern, $args = array()) {
+  return array(
+    '#theme' => 'patternlab_pattern',
+    '#category' => $category,
+    '#pattern' => $pattern,
+    '#arguments' => $args,
+  );
+}
+

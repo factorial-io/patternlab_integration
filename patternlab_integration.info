@@ -1,0 +1,4 @@
+name = Patternlab integration
+description = Some glue code to integrate patternlab more easily with drupal
+core = 7.x
+package = other

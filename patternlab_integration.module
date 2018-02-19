@@ -25,7 +25,6 @@ function patternlab_integration_theme($existing, $type, $theme, $path) {
  * Implements hook_preprocess_HOOK().
  */
 function patternlab_integration_preprocess_patternlab_pattern(&$variables) {
-  dsm($variables);
   global $theme;
   $fn = str_replace('-', '_', $theme . '_preprocess_pattern_' . $variables['category'] . '_' . $variables['pattern']);
   if (function_exists($fn)) {

@@ -1,0 +1,6 @@
+{
+  "name": "factorial-io/patternlab_integration",
+  "description": "Integrated patternlab better with drupal backend",
+  "type": "drupal-module",
+  "license": "MIT"
+}

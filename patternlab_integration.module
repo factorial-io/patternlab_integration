@@ -15,7 +15,8 @@ function patternlab_integration_theme($existing, $type, $theme, $path) {
       'variables' => array(
         'category' => NULL,
         'pattern' => NULL,
-        'arguments' => array()
+        'arguments' => array(),
+        'theme_debug' => FALSE,
       )
     )
   );
@@ -36,11 +37,12 @@ function patternlab_integration_preprocess_patternlab_pattern(&$variables) {
  * Get a render array which will render a patternlab-pattern.
  */
 function pattern($category, $pattern, $args = array()) {
-  return array(
+  $out = array(
     '#theme' => 'patternlab_pattern',
     '#category' => $category,
     '#pattern' => $pattern,
     '#arguments' => $args,
+    '#theme_debug' => variable_get('theme_debug', FALSE),
   );
+  return $out;
 }
-

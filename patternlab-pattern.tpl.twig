@@ -1,2 +1,5 @@
+{% if theme_debug is not empty %}
+<!-- PATTERNLAB COMPONENT: '{{ "@#{category}/#{pattern}/#{pattern}.twig" }}' -->
+{% endif %}
 {% set include_name ="@#{category}/#{pattern}/#{pattern}.twig" %}
 {% include include_name with arguments %}

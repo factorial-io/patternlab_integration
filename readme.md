@@ -18,5 +18,5 @@ To render a pattern, just use the `pattern`-helper-function:
 ```php
 $render_array = pattern('atoms', 'button', ['label' => 'hello world']);
 ```
-
+Thank You.
 
